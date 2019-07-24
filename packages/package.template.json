@@ -1,0 +1,16 @@
+{
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"browser": "dist/umd/index.js",
+	"typings": "dist/esm/index.d.ts",
+	"author": "Juha Järvi",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/requirex/codec.git"
+	},
+	"bugs": {
+		"url": "https://github.com/requirex/codec/issues"
+	},
+	"homepage": "https://github.com/requirex/codec/tree/master/packages/$NAME#readme"
+}

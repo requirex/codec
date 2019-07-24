@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{ "path": "packages" },
+	],
+	"settings": {
+		"editor.insertSpaces": false,
+		"files.exclude": {
+			"node_modules": true
+		},
+		"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+		"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+		"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+		"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+		"typescript.tsdk": "../node_modules/typescript/lib",
+		"typescript.tsc.autoDetect": "off"
+	}
+}

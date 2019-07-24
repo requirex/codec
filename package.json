@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "mrepo": "mrepo",
+    "clean": "git clean -xdf",
+    "watch": "cd packages && tsc -b --watch",
+    "prepublish": "mrepo install && tsc -b packages"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.8",
+    "mrepo": "0.0.1",
+    "rollup": "^1.17.0",
+    "typescript": "^3.5.3"
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"extends": "../../tsconfig.common",
+	"compileOnSave": true,
+	"compilerOptions": {
+		"declarationDir": "../dist/esm",
+		"outDir": "../dist/cjs"
+	},
+	"files": [
+		"types.ts",
+		"index.ts"
+	]
+}

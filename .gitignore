@@ -1,0 +1,14 @@
+node_modules
+@requirex
+dist/
+packages/*/src/types.ts
+LICENSE
+tsconfig.json
+package.json
+package-lock.json
+*.lock
+*.log.*
+*.log
+*.tgz
+packages/node_modules/@requirex/*/test/*.d.ts
+packages/node_modules/@requirex/*/test/*.js

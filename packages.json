@@ -1,0 +1,34 @@
+{
+	"basePath": "packages",
+	"scope": "@requirex",
+	"copyFiles": {
+		"LICENSE": "../LICENSE",
+		"src/types.ts": "types.ts"
+	},
+	"packageTemplate": "package.template.json",
+	"tsconfigTemplate": "tsconfig.template.json",
+	"tsconfigPaths": "src/tsconfig.json",
+	"packages": {
+		"base64": {
+			"version": "0.1.0"
+		},
+		"base64-vlq": {
+			"version": "0.1.0"
+		},
+		"binary": {
+			"version": "0.1.0"
+		},
+		"crc32": {
+			"version": "0.1.0"
+		},
+		"tar": {
+			"version": "0.1.0"
+		},
+		"utf-8": {
+			"version": "0.1.0"
+		},
+		"zip": {
+			"version": "0.1.0"
+		}
+	}
+}
