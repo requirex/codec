@@ -93,7 +93,9 @@ export function encodeUTF8(
   * @param src Array to encode.
   * @param dst Output string prefix, default is empty.
   * @param srcPos Initial offset to source data, default is 0.
-  * @param srcEnd Source data end offset, default is its length. */
+  * @param srcEnd Source data end offset, default is its length.
+  *
+  * @return Decoded string. */
 
 export function decodeUTF8(
 	src: number[],

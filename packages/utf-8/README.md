@@ -46,6 +46,37 @@ console.log(utf8.encodeUTF8('½').join(', '));
 console.log(utf8.decodeUTF8([194, 189]));
 ```
 
+## API
+
+### `encodeUTF8(src, dst?, dstPos?, srcPos?, srcEnd?)`
+
+UTF-8 encode a string to an array of bytes.
+This transform cannot fail and is reversible for any input string,
+regardless of strange or invalid characters (handled using WTF-8).
+
+- `src` String to encode.
+- `dst` Destination array or buffer for storing the result.
+- `dstPos` Initial offset to destination, default is 0.
+- `srcPos` Initial offset to source data, default is 0.
+- `srcEnd` Source data end offset, default is its length.
+
+Returns end offset past data stored if a destination was given,
+otherwise a numeric array containing the encoded result.
+Note that output length cannot exceed 3 * input length.
+
+### `decodeUTF8(src, dst?, srcPos?, srcEnd?)`
+
+UTF-8 decode an array of bytes into a string.
+Invalid surrogate pairs are left as-is to support WTF-8.
+All other invalid codes become replacement characters (fffd).
+
+- `src` Array to encode.
+- `dst` Output string prefix, default is empty.
+- `srcPos` Initial offset to source data, default is 0.
+- `srcEnd` Source data end offset, default is its length.
+
+Returns decoded string.
+
 # License
 
 [The MIT License](https://raw.githubusercontent.com/requirex/codec/master/LICENSE)
