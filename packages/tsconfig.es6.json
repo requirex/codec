@@ -1,0 +1,10 @@
+{
+	"extends": ".",
+	"compilerOptions": {
+		"module": "es6",
+		"outDir": "../dist/es6"
+	},
+	"references": [
+		{ "path": "." }
+	}
+}

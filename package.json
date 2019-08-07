@@ -4,9 +4,11 @@
   "scripts": {
     "tsc": "tsc",
     "mrepo": "mrepo",
+    "rollup": "rollup",
     "clean": "git clean -xdf",
     "watch": "cd packages && tsc -b --watch",
-    "prepublish": "mrepo install && tsc -b packages"
+    "test": "tsc -p test && node test/index.js",
+    "prepublish": "mrepo install && tsc -b packages && rollup -c"
   },
   "devDependencies": {
     "@types/node": "^12.6.8",

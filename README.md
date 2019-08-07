@@ -1,12 +1,12 @@
-# requirex/codec
+# @lib/codec
 
 This is a collection of fast, compact and portable codecs for handling string data especially in browsers.
 Node.js frequently has more efficient, native implementations that should be used when possible.
 
 These are extensively commented and designed to work together with consistent interfaces.
 
-Every codec is published as a separate micropackage in the `@requirex` namespace, and also collectively
-in a single package `@requirex/codec`.
+Every codec is published as a separate micropackage in the `@lib` namespace, and also collectively
+in a single package `@lib/codec`.
 
 The archive formats Zip and Tar feature no compression and are a convenient minimalistic way to
 save multiple locally generated files using the correct names, directory structure and permissions.

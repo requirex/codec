@@ -1,7 +1,7 @@
 import { ArrayType } from './types';
-import { LittleWriter } from '@requirex/binary';
-import { encodeUTF8 } from '@requirex/utf-8';
-import { CRC32 } from '@requirex/crc32';
+import { LittleWriter } from '@lib/binary';
+import { encodeUTF8 } from '@lib/utf-8';
+import { CRC32 } from '@lib/crc32';
 
 /** General purpose bit flags, documented for interest. */
 

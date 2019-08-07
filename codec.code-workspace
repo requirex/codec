@@ -1,6 +1,7 @@
 {
 	"folders": [
 		{ "path": "packages" },
+		{ "path": "test" }
 	],
 	"settings": {
 		"editor.insertSpaces": false,

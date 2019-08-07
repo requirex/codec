@@ -1,6 +1,6 @@
 import { ArrayType } from './types';
-import { Writer } from '@requirex/binary';
-import { encodeUTF8 } from '@requirex/utf-8';
+import { Writer } from '@lib/binary';
+import { encodeUTF8 } from '@lib/utf-8';
 
 /** File type mapped from POSIX (partial list). */
 

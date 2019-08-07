@@ -1,4 +1,4 @@
-import { fromBase64, toBase64 } from '@requirex/base64';
+import { fromBase64, toBase64 } from '@lib/base64';
 
 export function decodeVLQ(src: string): number[];
 export function decodeVLQ(

@@ -1,5 +1,5 @@
 import { ArrayType } from './types';
-import { encodeUTF8 } from '@requirex/utf-8';
+import { encodeUTF8 } from '@lib/utf-8';
 
 export class Hasher32 {
 
