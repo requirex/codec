@@ -1,3 +1,4 @@
+import { test } from './test';
 import { encodeUTF8, decodeUTF8 } from '../packages/utf-8';
 
 const validInputs: [number[], string][] = [
@@ -76,48 +77,34 @@ const invalidInputs: [number[], string][] = [
 	[[0xfc, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80], '\0\ufffd']
 ];
 
-for(let test of validInputs) {
-	const encoded = encodeUTF8(test[1]);
+const stringify = JSON.stringify;
 
-	if(encoded.join(',') != test[0].join(',')) {
-		console.error(
-			'encodeUTF8("' +
-			test[1] +
-			'") == [' +
-			encoded.join(', ') +
-			'] (expected [' +
-			test[0].join(', ') +
-			'])'
+test('UTF-8 encode / decode', (t) => {
+	for(let input of validInputs) {
+		t.equal(
+			stringify(encodeUTF8(input[1])),
+			stringify(input[0]),
+			'encodeUTF8(' + stringify(input[1]) + ')'
+		);
+
+		t.equal(
+			stringify(decodeUTF8(input[0])),
+			stringify(input[1]),
+			'decodeUTF8(' + stringify(input[0]) + ')'
 		);
 	}
 
-	const decoded = decodeUTF8(test[0])
+	t.end();
+});
 
-	if(decoded != test[1]) {
-		console.error(
-			'decodeUTF8([' +
-			test[0].join(', ') +
-			']) == "' +
-			decoded +
-			'" (expected "' +
-			test[1] +
-			'")'
+test('UTF-8 error handling', (t) => {
+	for(let input of invalidInputs) {
+		t.equal(
+			stringify(decodeUTF8(input[0])),
+			stringify(input[1]),
+			'decodeUTF8(' + stringify(input[0]) + ')'
 		);
 	}
-}
 
-for(let test of invalidInputs) {
-	const decoded = decodeUTF8(test[0])
-
-	if(decoded != test[1]) {
-		console.error(
-			'decodeUTF8([' +
-			test[0].join(', ') +
-			']) == "' +
-			decoded +
-			'" (expected "' +
-			test[1] +
-			'")'
-		);
-	}
-}
+	t.end();
+});
