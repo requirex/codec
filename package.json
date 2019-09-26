@@ -11,9 +11,9 @@
     "prepublish": "mrepo install && tsc -b packages && rollup -c"
   },
   "devDependencies": {
-    "@types/node": "^12.6.8",
-    "mrepo": "0.0.1",
-    "rollup": "^1.17.0",
-    "typescript": "^3.5.3"
+    "@types/node": "^12.7.8",
+    "mrepo": "0.0.2",
+    "rollup": "^1.21.4",
+    "typescript": "^3.6.3"
   }
 }
