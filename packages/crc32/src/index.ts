@@ -6,17 +6,18 @@ export class Hasher32 {
 	constructor(private tbl: number[]) {}
 
 	append(
-		src: string | ArrayType,
+		src?: string | ArrayType,
 		srcPos = 0,
 		srcEnd?: number
 	) {
 		let { tbl, crc } = this;
 
+		src = src || [];
 		if(typeof src == 'string') src = encodeUTF8(src);
 		if(srcEnd === void 0) srcEnd = src.length;
 
 		while(srcPos < srcEnd) {
-			crc = (crc >>> 8) ^ tbl[(crc & 0xff) ^ src[srcPos++]];
+			crc = (crc >>> 8) ^ tbl[(crc & 0xff) ^ src![srcPos++]];
 		}
 
 		this.crc = crc;

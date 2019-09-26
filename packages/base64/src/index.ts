@@ -28,13 +28,14 @@ for(let i = 0; i < 65; ++i) {
   * @return Encoded string. */
 
 export function encode64(
-	src: string | ArrayType,
+	src?: string | ArrayType,
 	dst = '',
 	srcPos = 0,
 	srcEnd?: number
 ) {
 	let a: number, b: number, c: number;
 
+	src = src || [];
 	if(typeof src == 'string') src = encodeUTF8(src);
 	if(srcEnd === void 0) srcEnd = src.length;
 
