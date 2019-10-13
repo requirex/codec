@@ -3,10 +3,11 @@ import { fromBase64, toBase64 } from '@lib/base64';
 export function decodeVLQ(src: string): number[];
 export function decodeVLQ(
 	src: string,
-	dst?: number[],
+	dst: number[],
 	dstPos?: number,
 	srcPos?: number,
-	srcEnd?: number
+	srcEnd?: number,
+	dstEnd?: number
 ): number;
 
 /** Decode a string containing Base64 variable-length quantities,
@@ -17,6 +18,7 @@ export function decodeVLQ(
   * @param dstPos Initial offset to destination, default is 0.
   * @param srcPos Initial offset to source data, default is 0.
   * @param srcEnd Source data end offset, default is its length.
+  * @param dstEnd Maximum destination array size.
   *
   * @return End offset past data stored if a destination was given,
   * otherwise a numeric array containing the encoded result. */
@@ -26,7 +28,8 @@ export function decodeVLQ(
 	dst?: number[],
 	dstPos = 0,
 	srcPos = 0,
-	srcEnd = src.length
+	srcEnd = src.length,
+	dstEnd = srcEnd
 ) {
 	let result: number[] | undefined;
 	let shift = 0;
@@ -36,7 +39,7 @@ export function decodeVLQ(
 
 	dst = dst || (result = []);
 
-	while(srcPos < srcEnd) {
+	while(srcPos < srcEnd && dstPos < dstEnd) {
 		code = fromBase64[src.charCodeAt(srcPos++)];
 		num += (code & 31) << shift;
 
@@ -44,6 +47,7 @@ export function decodeVLQ(
 			shift += 5;
 		} else {
 			sign = num & 1;
+			// Zig-zag decode unsigned to signed.
 			dst[dstPos++] = ((num >>> 1) ^ -sign) + sign;
 	
 			shift = 0;
