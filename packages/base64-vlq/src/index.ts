@@ -54,15 +54,28 @@ export function decodeVLQ(
 	return result || dstPos;
 }
 
-// TODO
 export function encodeVLQ(
 	src: number[],
 	dst = '',
 	srcPos = 0,
 	srcEnd = src.length
 ) {
+	let num: number;
+	let sign: number;
+
 	while(srcPos < srcEnd) {
-		++srcPos;
+		num = src[srcPos++];
+		sign = num >> 31;
+
+		// Zig-zag encode signed to unsigned.
+		num = ((num + sign) << 1) ^ sign;
+
+		while(num > 31) {
+			dst += toBase64[(num & 31) | 32];
+			num >>>= 5;
+		}
+
+		dst += toBase64[num & 31];
 	}
 
 	return dst;
